@@ -46,7 +46,7 @@ If you want to contribute to the project or report issues, feel free to create a
 
 ## Credits
 
-Built by [Your Name]. Visit [yourwebsite.com](https://yourwebsite.com) for more projects.
+Built by Joshua. Visit [joshytheprogrammer.com](https://joshytheprogrammer.com) for more projects.
 
 ## License
 
