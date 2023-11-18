@@ -40,6 +40,11 @@ The CU Course Evaluator extension is also compatible with Firefox and can be ins
 
 This ensures that you can enjoy the convenience of the extension on both Chrome and Firefox browsers.
 
+## Version History
+
+- **1.0.0 (Initial Release):** Basic functionality with mood-based form filling.
+- **1.1.0 (Added Random):** Introduces randomization for a more varied rating experience. The extension now randomly selects between extreme and normal ratings, enhancing user interaction (e.g., Very good or good).
+
 ## Contributing
 
 If you want to contribute to the project or report issues, feel free to create a pull request or open an issue on the GitHub repository.
@@ -50,4 +55,4 @@ Built by Joshua. Visit [joshytheprogrammer.com](https://joshytheprogrammer.com) 
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the MIT License

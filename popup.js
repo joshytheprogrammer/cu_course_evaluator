@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Get information about the current active tab
   browser.tabs.query({ active: true, currentWindow: true }, function(tabs) {
     const isMoodlePage = tabs[0].url.startsWith('https://moodle.cu.edu.ng/mod/feedback/complete.php');
+    // const isMoodlePage = tabs[0].url.startsWith('https://moodle.cu.edu.ng/');
 
     // Show/hide elements based on the URL
     fillFormButton.style.display = isMoodlePage ? 'block' : 'none';
