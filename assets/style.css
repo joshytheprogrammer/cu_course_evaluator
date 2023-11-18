@@ -67,21 +67,42 @@ header h1 {
       box-shadow: 0 0 5px var(--button-background);
     }
   }
-}
 
-#fillForm {
-  margin: 1rem 0;
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: var(--button-background);
-  color: var(--button-text);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s; 
-
-  &:hover {
-    background-color: var(--button-background-dark);
+  #checkboxContainer {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+  
+  label[for="autoSubmitCheckbox"] {
+    margin-left: 0.5rem;
+    font-size: 14px;
+    color: var(--primary-color);
+  }
+  
+  #autoSubmitCheckbox {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  #autoSubmitCheckbox:hover {
+    transform: scale(1.1);
+  }
+  
+  #fillForm {
+    margin: 1.2rem 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: var(--button-background);
+    color: var(--button-text);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  
+    &:hover {
+      background-color: var(--button-background-dark);
+    }
   }
 }
 
@@ -94,7 +115,7 @@ footer {
 
   p {
     font-size: 12px;
-  
+
     a {
       color: var(--button-background);
     }

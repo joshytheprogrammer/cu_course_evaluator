@@ -1,11 +1,11 @@
 // Listen for messages from the background script (popup.js)
 browser.runtime.onMessage.addListener(function(message) {
   if (message.action === "fillForm") {
-    fillCourseForm(message.eval);
+    fillCourseForm(message.eval, message.autoSubmit);
   }
 });
 
-function fillCourseForm(eval) {
+function fillCourseForm(eval, shouldSubmit) {
   const reverseValues = eval === '0';
 
   const getRandomValue = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
@@ -53,5 +53,10 @@ function fillCourseForm(eval) {
   document.getElementById('id_textfield_154258').value = 'Not sure';
 
   document.getElementById('id_multichoice_154259').value = reverseValues ? getRandomValue(1, 2) : getRandomValue(3, 4);
+
+  if (shouldSubmit) {
+    const submitButton = document.getElementById('id_savevalues');
+    submitButton.click();
+}
 
 }
