@@ -1,5 +1,6 @@
-// Listen for messages from the background script (popup.js)
-browser.runtime.onMessage.addListener(function(message) {
+const runtime = chrome.runtime || browser.runtime;
+
+runtime.onMessage.addListener(function(message) {
   if (message.action === "fillForm") {
     fillCourseForm(message.eval, message.autoSubmit);
   }
@@ -57,6 +58,6 @@ function fillCourseForm(eval, shouldSubmit) {
   if (shouldSubmit) {
     const submitButton = document.getElementById('id_savevalues');
     submitButton.click();
-}
+  }
 
 }

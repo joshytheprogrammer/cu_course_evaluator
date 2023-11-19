@@ -1,3 +1,5 @@
+const tabsAPI = chrome.tabs || browser.tabs;
+
 document.addEventListener('DOMContentLoaded', function() {
   const fillFormButton = document.getElementById('fillForm');
   const messageElement = document.getElementById('message');
@@ -6,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const autoSubmitCheckbox = document.getElementById('autoSubmitCheckbox');
 
   // Get information about the current active tab
-  browser.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+  tabsAPI.query({ active: true, currentWindow: true }, function(tabs) {
     const isMoodlePage = tabs[0].url.startsWith('https://moodle.cu.edu.ng/mod/feedback/complete.php');
     // const isMoodlePage = tabs[0].url.startsWith('https://moodle.cu.edu.ng/');
 
@@ -23,8 +25,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const shouldSubmitAutomatically = autoSubmitCheckbox.checked;
 
     // Send a message to the content script
-    browser.tabs.query({ active: true, currentWindow: true }, function(tabs) {
-      browser.tabs.sendMessage(tabs[0].id, { action: 'fillForm', eval: evaluationType, autoSubmit: shouldSubmitAutomatically });
+    tabsAPI.query({ active: true, currentWindow: true }, function(tabs) {
+      tabsAPI.sendMessage(tabs[0].id, { action: 'fillForm', eval: evaluationType, autoSubmit: shouldSubmitAutomatically });
       displaySuccessMessage();
     });
   });
@@ -41,3 +43,4 @@ function displaySuccessMessage() {
   checkboxContainer.style.display = 'none';
   successParagraph.style.display = 'block';
 }
+

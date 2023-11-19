@@ -45,6 +45,7 @@ This ensures that you can enjoy the convenience of the extension on both Chrome 
 - **1.0.0 (Initial Release):** Basic functionality with mood-based form filling.
 - **1.1.0 (Added Random):** Introduces randomization for a more varied rating experience. The extension now randomly selects between extreme and normal ratings, enhancing user interaction (e.g., Very good or good).
 - **1.2.0 (Auto-Submit Option):** Added an auto-submit option. Users can now choose to automatically submit the form after rating, providing a seamless experience.
+- **1.3.0 (Customized for Chrome):** I made a bunch of changes to the extension essentially to get it ready to be deployed to the Chrome Web Store.
 
 ## Contributing
 
