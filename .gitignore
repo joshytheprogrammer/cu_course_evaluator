@@ -171,3 +171,5 @@ dist
 # IntelliJ based IDEs
 .idea
 .vscode
+
+web-ext-artifacts/

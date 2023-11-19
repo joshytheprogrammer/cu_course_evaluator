@@ -1,13 +1,13 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "CU Course Evaluator",
   "version": "1.2.0",
   "description": "Automatically fill out course evaluation forms on Moodle",
   "permissions": ["activeTab"],
-  "browser_action": {
-    "default_icon": {
-      "48": "./assets/icon.png"
-    },
+  "icons": {
+    "48": "assets/icon48.png"
+  },
+  "action": {
     "default_popup": "popup.html"
   },
   "content_scripts": [
