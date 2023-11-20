@@ -55,6 +55,8 @@ If you want to contribute to the project or report issues, feel free to create a
 
 Built by Joshua. Visit [joshytheprogrammer.com](https://joshytheprogrammer.com) for more projects.
 
+Icon by Adesmith. You can contact him on [Instagram](https://instagram.com/canvasvisuals) or [WhatsApp]: (wa.me/+2348140298447)
+
 ## License
 
 This project is licensed under the MIT License

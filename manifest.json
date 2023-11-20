@@ -16,5 +16,11 @@
       "js": ["./content.js"],
       "css": ["assets/style.css"]
     }
-  ]
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "cu-course-validator@joshytheprogrammer.com",
+      "strict_min_version": "42.0"
+    }
+  }  
 }
