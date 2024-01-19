@@ -13,11 +13,12 @@
   transition: all 0.3s ease; 
 }
 
-body {
+#body {
   font-family: 'Montserrat', sans-serif;
   background-color: var(--background-color);
   text-align: center;
   padding: 1rem;
+  width: 400px;
 }
 
 header h1 {

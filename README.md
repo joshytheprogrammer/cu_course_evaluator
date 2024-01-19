@@ -48,6 +48,7 @@ This ensures that you can enjoy the convenience of the extension on both Chrome 
 - **1.3.0 (Customized for Chrome):** I made a bunch of changes to the extension essentially to get it ready to be deployed to the Chrome Web Store.
 - **1.3.1 (Added store link):** I added a link to make it easier for user to share the extension with friends.
 - **1.4.0 (Fixed error for exam evaluation):** I fixed the bug that made the extension only work for specific evaluations. I made it more general.
+- **1.4.1 (Fixed UI errors on Chrome):** I fixed a UI bug that I noticed occured on google chrome. Involved me switching from styling elements directly.
 
 ## Contributing
 
