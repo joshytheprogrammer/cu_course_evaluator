@@ -15,24 +15,54 @@
     <h1>CU Course Evaluator</h1>
   </header>
   <div class="container">
-    <p id="successText">
-      Form filled successfully.<br>
-      Thank you for using the CU Course Evaluator
-    </p>
-    <div id="eval">
-      <select id="evaluationSelect">
-        <option value="1">Positive</option>
-        <option value="0">Negative</option>
-      </select>
+    <div class="page" id="home">
+      <div class="listings">
+        <div class="item">
+          <p id="numberOfCoursesOffered">0</p>
+          <p>registered <br> courses</p>
+        </div>
+        <div class="item">
+          <p id="numberOfCompletedEvaluations">0</p>
+          <p>completed <br> evaluations</p>
+        </div>
+      </div>
+      <button class="ex-btn" id="evaluateAll">Evaluate all</button>
     </div>
-    <div id="checkboxContainer">
-      <label for="autoSubmitCheckbox">Submit Automatically</label>
-      <input type="checkbox" id="autoSubmitCheckbox" checked>
+    <div class="page" id="fill">
+      <div id="eval">
+        <select id="evaluationSelect">
+          <option value="1">Positive</option>
+          <option value="0">Negative</option>
+        </select>
+      </div>
+      <div id="checkboxContainer">
+        <input type="checkbox" id="autoSubmitCheckbox" checked>
+        <label for="autoSubmitCheckbox">Submit Automatically</label>
+      </div>
+      <button class="ex-btn" id="fillForm">Fill Course Evaluation Form</button>
     </div>
-    <button id="fillForm">Fill Course Evaluation Form</button>
+    <div class="page" id="noPage">
+      <p >
+        This extension is not available on this page.<br>
+        Please try again later.
+      </p>
+      <button class="ex-btn"><a href="https://moodle.cu.edu.ng/my/">Visit Home</a></button>
+    </div>
+    <div class="page" id="success">
+      <p id="successText">
+        Form filled successfully.<br>
+        Thank you for using the CU Course Evaluator
+      </p>
+      <button class="ex-btn" id="goHomeBtn">Go home</button>
+    </div>
+    <div class="page" id="error">
+      <p id="errorText">
+        An error occured while filling the form.<br>
+        Please try again later.
+      </p>
+    </div>
   </div>
   <footer>
-    <p id="message"></p>
     <p>Built by <a href="https://joshytheprogrammer.com">joshytheprogrammer</a></p>
     <p>Downloaded from: <a href="https://joshytheprogrammer.com/extensions/cu-course-evaluator"/>JTP Web Store</a></p>
   </footer>

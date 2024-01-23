@@ -4,6 +4,10 @@ runtime.onMessage.addListener(({ action, eval, autoSubmit }) => {
   if (action === "fillForm") {
     fillCourseForm(eval, autoSubmit);
   }
+
+  if (action === "scan") {
+    scanPage();
+  }
 });
 
 const getContext = (index, reverseValues) => {
@@ -32,4 +36,69 @@ function fillCourseForm(eval, shouldSubmit) {
     const submitButton = document.getElementById('id_savevalues');
     submitButton.click();
   }
+}
+
+
+
+function evaluateAll() {
+  // 
+
+  const feedBackID = extractFeedbackID();
+}
+
+async function scanPage() {
+  const coursesOfferedDOM = document.querySelectorAll('.aalink.coursename');
+
+  const feedBackID = extractFeedbackID();
+
+  const evaluationResults = [];
+
+  for (let i = 0; i < coursesOfferedDOM.length; i++) {
+    const href = coursesOfferedDOM[i].href;
+    const courseId = href.split('=')[1];
+    const url = `https://moodle.cu.edu.ng/mod/feedback/complete.php?id=${feedBackID}&courseid=${courseId}`;
+
+    const evaluationResult = await checkEvaluationStatus(url);
+    evaluationResults.push(evaluationResult);
+  }
+
+  runtime.sendMessage({
+    action: 'updatePopup',
+    numberOfCoursesOffered: coursesOfferedDOM.length,
+    numberOfCompletedEvaluations: evaluationResults.filter(result => result).length
+  });
+}
+
+async function checkEvaluationStatus(url) {
+  try {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      console.error(`Network response was not ok: ${response.statusText}`);
+      throw new Error(`Network response was not ok: ${response.statusText}`);
+    }
+
+    const html = await response.text();
+    const result = parseEvaluationPage(html);
+    return result;
+  } catch (error) {
+    console.error('Error fetching or parsing data:', error);
+    return 0; // or any other appropriate default value
+  }
+}
+
+function parseEvaluationPage(html) {
+  const completionMessage = new DOMParser().parseFromString(html, 'text/html').querySelector('.alert.alert-danger');
+
+  // Check if the activity is completed
+  if (completionMessage && completionMessage.textContent.includes("You've already completed this activity.")) {
+    return true; // Activity is completed
+  } else {
+    return false; // Activity is not completed
+  }
+}
+
+function extractFeedbackID() {
+  const feedbackDOM = document.querySelector('.block_feedback .card-body .card-text.content a');
+  return feedbackDOM.href.split('=')[1].split('&')[0];
 }

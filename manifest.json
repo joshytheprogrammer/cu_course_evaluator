@@ -12,7 +12,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["*://moodle.cu.edu.ng/mod/feedback/*"],
+      "matches": ["*://moodle.cu.edu.ng/*"],
       "js": ["./content.js"],
       "css": ["assets/style.css"]
     }

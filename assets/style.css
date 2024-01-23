@@ -21,6 +21,28 @@
   width: 400px;
 }
 
+button.ex-btn {
+  margin: 1.2rem 0;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: var(--button-background);
+  color: var(--button-text);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: var(--button-background-dark);
+  }
+
+   /* Code for a disabled button */
+  &:disabled {
+    background-color: #ccc;
+    color: #fff;
+    cursor: not-allowed;
+  }
+}
 header h1 {
   color: var(--primary-color);
   text-transform: capitalize;
@@ -32,77 +54,109 @@ header h1 {
   justify-content: center;
   align-items: center;
 
-  #successText {
-    display: none;
-    font-size: 14px;
-    padding: 12px 0;
+  .page {
+    display: block;
+    padding: 2rem 1rem;
   }
 
-  #eval {
-    padding: 1rem 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  #home {
+    .listings {
+      display: flex;
+      gap: 2rem;
 
-    select {
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid var(--primary-color);
-      border-radius: 5px;
-      width: 200px;
-      cursor: pointer;
-      transition: all 0.3s ease;
+      .item {
+        p:first-child {
+          font-weight: bold;
+          font-size: 24px;
+        }
+
+        p:nth-child(2) {
+          font-size: 12px;
+        }
+      }
     }
 
-    select option {
-      background-color: var(--background-color);
+    #evaluateAll {
+      
+    }
+  }
+
+  #fill {
+    #eval {
+      padding: 1rem 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  
+      select {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid var(--primary-color);
+        border-radius: 5px;
+        width: 200px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+  
+      select option {
+        background-color: var(--background-color);
+        color: var(--primary-color);
+      }
+  
+      select:hover {
+        border-color: var(--button-background);
+      }
+  
+      select:focus {
+        outline: none;
+        box-shadow: 0 0 5px var(--button-background);
+      }
+    }
+  
+    #checkboxContainer {
+      display: flex;
+      justify-content: center;
+      /* flex-direction: row-reverse; */
+      align-items: center;
+    }
+    
+    label[for="autoSubmitCheckbox"] {
+      margin-left: 0.5rem;
+      font-size: 14px;
       color: var(--primary-color);
     }
+    
+    #autoSubmitCheckbox {
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    
+    #autoSubmitCheckbox:hover {
+      transform: scale(1.1);
+    }
+    
+    #fillForm {
+      
+    }
+  }
 
-    select:hover {
-      border-color: var(--button-background);
+  #success {
+    #successText {
+      font-size: 14px;
+      padding: 12px 0;
+    }
+  }
+
+  #noPage {
+    p {
+      font-size: 14px;
+      padding: 12px 0;
     }
 
-    select:focus {
-      outline: none;
-      box-shadow: 0 0 5px var(--button-background);
-    }
-  }
+    button a {
+      color: var(--button-text);
+      text-decoration: none;
 
-  #checkboxContainer {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-  }
-  
-  label[for="autoSubmitCheckbox"] {
-    margin-left: 0.5rem;
-    font-size: 14px;
-    color: var(--primary-color);
-  }
-  
-  #autoSubmitCheckbox {
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-  
-  #autoSubmitCheckbox:hover {
-    transform: scale(1.1);
-  }
-  
-  #fillForm {
-    margin: 1.2rem 0;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: var(--button-background);
-    color: var(--button-text);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  
-    &:hover {
-      background-color: var(--button-background-dark);
     }
   }
 }
