@@ -2,12 +2,14 @@ const tabsAPI = chrome.tabs || browser.tabs;
 const runtime = chrome.runtime || browser.runtime;
 
 document.addEventListener('DOMContentLoaded', function() {
-  fillFormButton = document.getElementById('fillForm');
-  scanButton = document.getElementById('scan');
-  evaluationSelect = document.getElementById('evaluationSelect');
-  autoSubmitCheckbox = document.getElementById('autoSubmitCheckbox');
-  evaluateAllBtn = document.getElementById('evaluateAll');
-  goHomeBtn = document.getElementById('goHomeBtn');
+  const fillFormButton = document.getElementById('fillForm');
+  const scanButton = document.getElementById('scan');
+  const evaluationSelect = document.getElementById('evaluationSelect');
+  const autoSubmitCheckbox = document.getElementById('autoSubmitCheckbox');
+  const evaluateAllBtn = document.getElementById('evaluateAll');
+  const goHomeBtn = document.getElementById('goHomeBtn');
+
+  const homeErrorMessage = document.getElementById('homeErrorMessage');
 
   //hide goHomeBtn
   goHomeBtn.style.display = 'none';
@@ -54,6 +56,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+  // Add click event listener to the fillForm button
+  evaluateAllBtn.addEventListener('click', function() {
+    evaluateAllBtn.disabled = true;
+    evaluateAllBtn.innerHTML = 'Evaluating...';
+
+    // Send a message to the content script
+    tabsAPI.query({ active: true, currentWindow: true }, function(tabs) {
+      tabsAPI.sendMessage(tabs[0].id, { action: 'evaluateAll' });
+    });
+
+    
+  });
+
   runtime.onMessage.addListener(function(request, sender, sendResponse) {
     if (request.action === 'updatePopup') {
       const numberOfCoursesOfferedElement = document.getElementById('numberOfCoursesOffered');
@@ -62,9 +77,20 @@ document.addEventListener('DOMContentLoaded', function() {
       numberOfCoursesOfferedElement.textContent = request.numberOfCoursesOffered;
       numberOfCompletedEvaluationsElement.textContent = request.numberOfCompletedEvaluations;
 
+      if(request.numberOfCoursesOffered === 0) {
+        homeErrorMessage.innerText="Could not find any registered courses. Try waiting for the page to finish loading.";
+      }
+
       // enable evaluate all button
-      evaluateAllBtn.disabled = false;
+      evaluateAllBtn.disabled = true;
       evaluateAllBtn.innerHTML = 'Evaluate All';
+
+      // show error message
+      homeErrorMessage.hidden = false;
+    }
+
+    if (request.action === 'handleFinishedEvaluation') {
+      console.log('Evaluation done')
     }
   });
 });

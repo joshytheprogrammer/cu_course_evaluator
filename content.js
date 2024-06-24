@@ -8,6 +8,10 @@ runtime.onMessage.addListener(({ action, eval, autoSubmit }) => {
   if (action === "scan") {
     scanPage();
   }
+
+  if(action === 'evaluateAll' ) {
+    evaluateAll()
+  }
 });
 
 const getContext = (index, reverseValues) => {
@@ -38,13 +42,41 @@ function fillCourseForm(eval, shouldSubmit) {
   }
 }
 
-
-
 function evaluateAll() {
-  // 
 
+  const coursesOfferedDOM = document.querySelectorAll('.aalink.coursename');
   const feedBackID = extractFeedbackID();
+
+  const evaluateCourse = async (courseIndex) => {
+    if (courseIndex >= coursesOfferedDOM.length) {
+      runtime.sendMessage({
+        action: 'handleFinishedEvaluation'
+      });
+      return;
+    }
+
+    const href = coursesOfferedDOM[courseIndex].href;
+    const courseId = href.split('=')[1];
+    const url = `https://moodle.cu.edu.ng/mod/feedback/complete.php?id=${feedBackID}&courseid=${courseId}`;
+
+    const response = await fetch(url);
+    const html = await response.text();
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const isCompleted = doc.querySelector('.alert.alert-danger');
+
+    if (!isCompleted) {
+      const evalType = document.getElementById('evaluationSelect').value;
+      const shouldSubmit = document.getElementById('autoSubmitCheckbox').checked;
+      fillCourseForm(evalType, shouldSubmit);
+    }
+
+    setTimeout(() => evaluateCourse(courseIndex + 1), 2000);
+  };
+
+  evaluateCourse(0);
 }
+
 
 async function scanPage() {
   const coursesOfferedDOM = document.querySelectorAll('.aalink.coursename');
