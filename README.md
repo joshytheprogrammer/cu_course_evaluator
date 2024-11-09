@@ -50,6 +50,7 @@ This ensures that you can enjoy the convenience of the extension on both Chrome 
 - **1.4.0 (Fixed error for exam evaluation):** I fixed the bug that made the extension only work for specific evaluations. I made it more general.
 - **1.4.1 (Fixed UI errors on Chrome):** I fixed a UI bug that I noticed occured on google chrome. Involved me switching from styling elements directly.
 - **1.4.2 (Fixed Mood related issue):** I fixed a bug that made the mood feature useless by adding contexts to each question which represented the mood of the question.
+- **1.4.5 (Confirm evaluation):** Implemented a feature that allows the extension check for registered courses as well as other minor improvements - like fixing the issue with links.
 
 ## Contributing
 

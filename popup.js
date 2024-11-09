@@ -44,6 +44,26 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Coming soon')
   });
 
+  document.getElementById('visitSiteLink').addEventListener('click', () => {
+    chrome.tabs.create({ url: 'https://joshytheprogrammer.com' });
+  });
+
+  document.getElementById('visitExtensionLink').addEventListener('click', () => {
+    chrome.tabs.create({ url: 'https://joshytheprogrammer.com/extensions/cu-course-evaluator' });
+  });
+
+  document.getElementById('visitReportFormLink').addEventListener('click', () => {
+    chrome.tabs.create({ url: 'https://forms.gle/M3H5ogUDSwhPyZSCA' });
+  });
+
+  document.getElementById('externalVisitMoodleHomeLink').addEventListener('click', () => {
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+      chrome.tabs.update(tabs[0].id, { url: 'https://moodle.cu.edu.ng/my/' });
+    });
+
+    toHomePage();
+  });
+
   // Add click event listener to the fillForm button
   fillFormButton.addEventListener('click', function() {
     const evaluationType = evaluationSelect.value;

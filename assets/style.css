@@ -91,9 +91,9 @@ header h1 {
 
     }
 
-    #evaluateAll {
+    /* #evaluateAll {
       
-    }
+    } */
   }
 
   #fill {
@@ -150,9 +150,9 @@ header h1 {
       transform: scale(1.1);
     }
     
-    #fillForm {
+    /* #fillForm {
       
-    }
+    } */
   }
 
   #success {
@@ -178,6 +178,10 @@ header h1 {
 
 footer {
   padding: 12px 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
 
   #message {
     padding-bottom: 8px;
@@ -189,5 +193,11 @@ footer {
     a {
       color: var(--button-background);
     }
+  }
+
+  span {
+    font-size: 10px;
+    font-weight: bold;
+    padding: 4px 0;
   }
 }

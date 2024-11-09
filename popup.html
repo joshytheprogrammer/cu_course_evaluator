@@ -12,7 +12,7 @@
 </head>
 <body id="body">
   <header>
-    <h1>CU Course Evaluator <sup>v1.4.5</sup></h1>
+    <h1>CU Course Evaluator</h1>
   </header>
   <div class="container">
     <div class="page" id="home">
@@ -27,7 +27,7 @@
         </div>
       </div>
       <p id="homeErrorMessage" hidden></p>
-      <button class="ex-btn" id="evaluateAll" title="coming soon">Evaluate all</button>
+      <button disabled class="ex-btn" id="evaluateAll" title="coming soon">Evaluate all</button>
     </div>
     <div class="page" id="fill">
       <div id="eval">
@@ -47,7 +47,7 @@
         This extension is not available on this page.<br>
         Please try again later.
       </p>
-      <button class="ex-btn"><a href="https://moodle.cu.edu.ng/my/">Visit Home</a></button>
+      <button class="ex-btn"><a id="externalVisitMoodleHomeLink" href="https://moodle.cu.edu.ng/my/">Visit Home</a></button>
     </div>
     <div class="page" id="success">
       <p id="successText">
@@ -64,8 +64,10 @@
     </div>
   </div>
   <footer>
-    <p>Built by <a href="https://joshytheprogrammer.com">joshytheprogrammer</a></p>
-    <p>Downloaded from: <a href="https://joshytheprogrammer.com/extensions/cu-course-evaluator"/>JTP Web Store</a></p>
+    <p>Built by <a id="visitSiteLink" href="http://joshytheprogrammer.com">joshytheprogrammer</a></p>
+    <p>Downloaded from: <a id="visitExtensionLink" href="https://joshytheprogrammer.com/extensions/cu-course-evaluator"/>JTP Web Store</a></p>
+    <p><a id="visitReportFormLink" href="https://forms.gle/M3H5ogUDSwhPyZSCA"/>Report an Issue</a></p>
+    <span>v1.4.5</span>
   </footer>
 </body>
 
